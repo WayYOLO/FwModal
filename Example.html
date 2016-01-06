@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+  <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+  <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+  <!--[if !IE]><!-->
+  <html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述4个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="app/assets/imgs/favicon.ico">
+    <title>FwModal-example</title>
+     <!-- normalize -->
+     <link rel="stylesheet" href="app/assets/css/normalize-min.css">
+     <link href="app/assets/css/FwModal.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+      <body>
+        <button type="button" class="btn btn-success " id="dialog-btn1" data-toggle="modal" data-target="#myModal1" >请点击</button>
+         <div class="modal fade" data-backdrop="static" id="myModal1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="app/assets/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="app/assets/js/FwModal.js"></script>
+  </body>
+</html>
