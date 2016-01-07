@@ -1,28 +1,22 @@
-/* ========================================================================
- * Bootstrap: transition.js v3.3.5
- * http://getbootstrap.com/javascript/#transitions
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
+// Bootstrap: transition.js v3.3.5
+ // Transition.js 就是为了判断当前使用的浏览器是否支持 CSS 过渡
+// Transition.js 是 transitionEnd 事件和 CSS 过渡效果模拟器的基本帮助器类。它被其他插件用来检查 CSS 过渡效果支持，并用来获取过渡效果。
 +function ($) {
   'use strict';
 
-  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
-  // ============================================================
-
   function transitionEnd() {
+     // 创建一个元素用于测试
     var el = document.createElement('bootstrap')
-
+       // 将所有主流浏览器实现方式整合成一个对象，用于遍历
+      // key   是属性名称
+     // value 是事件名称
     var transEndEventNames = {
       WebkitTransition : 'webkitTransitionEnd',
       MozTransition    : 'transitionend',
       OTransition      : 'oTransitionEnd otransitionend',
       transition       : 'transitionend'
     }
-
+    // 循环遍历上面那个对象，判断 CSS 属性是否存在
     for (var name in transEndEventNames) {
       if (el.style[name] !== undefined) {
         return { end: transEndEventNames[name] }
@@ -34,17 +28,17 @@
 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
-    var called = false
+    var called = false   // transitionend 事件是否已触发标识
     var $el = this
-    $(this).one('bsTransitionEnd', function () { called = true })
-    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
-    setTimeout(callback, duration)
+    $(this).one('bsTransitionEnd', function () { called = true }) // 表示已触发
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) } // 未触发，强制其触发
+    setTimeout(callback, duration) // 一段时间后检测是否触发
     return this
   }
 
   $(function () {
     $.support.transition = transitionEnd()
-
+      // 支持过渡的时候才执行后面的代码
     if (!$.support.transition) return
 
     $.event.special.bsTransitionEnd = {
@@ -58,20 +52,10 @@
 
 }(jQuery);
 
-/* ========================================================================
- * Bootstrap: modal.js v3.3.5
- * http://getbootstrap.com/javascript/#modals
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
+ // Bootstrap: modal.js v3.3.5
+ 
 +function ($) {
   'use strict';
-
-  // MODAL CLASS DEFINITION
-  // ======================
 
   var Modal = function (element, options) {
     this.options             = options
@@ -398,9 +382,6 @@
 
 /*!
  * Draggabilly PACKAGED v1.2.4
- * Make that shiz draggable
- * http://draggabilly.desandro.com
- * MIT license
  */
 
 /**
@@ -2652,9 +2633,18 @@ return Draggabilly;
 //bootstrap-modal.js And draggabilly.js Integration solution
  $(function(){
     var $draggable = $('.modal-dialog').draggabilly({
-          containment: '.modal-backdrop',
            handle: '.modal-header'
         });
+    $draggable.on( 'dragMove', function( event, pointer, moveVector ) {
+    if ($(this).offset().top===0||$(this).offset().top<0) {
+        $(this).offset({top:0})
+    }
+    })
+    $draggable.on( 'dragEnd', function( event, pointer ) { 
+      if ($(this).offset().top===0||$(this).offset().top<0) {
+        $(this).offset({top:0})
+    }
+   })
     $('.modal-header').css('cursor', 'move').hover(function() {
       $(this).parent().parent().parent().removeClass('fade');
     }, function() {
@@ -2662,5 +2652,5 @@ return Draggabilly;
     });
    $("[data-dismiss='modal']").click(function(){
       $(this).parents('.modal').addClass('fade');
-   });
+   });  
   })
