@@ -39,9 +39,9 @@
 }
 .modal.fade .modal-dialog.is-dragging{
   transition-duration: 0s;
-  -moz-transition-duration: 0s; /* Firefox 4 */
-  -webkit-transition-duration: 0s; /* Safari 和 Chrome */
-  -o-transition-duration: 0s; /* Opera */
+  -moz-transition-duration: 0s; 
+  -webkit-transition-duration: 0s; 
+  -o-transition-duration: 0s; 
 }
 .modal.in .modal-dialog {
   -webkit-transform: translate(0, 0);
@@ -76,15 +76,15 @@
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: #000000;
+  background-color: rgb(94, 110, 141);
 }
 .modal-backdrop.fade {
   opacity: 0;
   filter: alpha(opacity=0);
 }
 .modal-backdrop.in {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.2;
+  filter: alpha(opacity=20);
 }
 .modal-header {
   padding: 15px;
@@ -146,9 +146,15 @@
 :focus{
   outline: 0px;
 }
-
 body{
   font-family: "Microsoft YaHei"
+}
+ body.modal-open .app.blur{ 
+    -webkit-filter: blur(9px); 
+       -moz-filter: blur(9px);
+        -ms-filter: blur(9px);    
+         filter: blur(9px);
+          filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=9, MakeShadow=false); /* IE6~IE9 */
 }
 .btn {
   display: inline-block;

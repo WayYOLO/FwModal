@@ -26,7 +26,9 @@
     <![endif]-->
   </head>
       <body>
+        <div class="app blur">
         <button type="button" class="btn btn-success " id="dialog-btn1" data-toggle="modal" data-target="#myModal1" >请点击</button>
+        </div>
          <div class="modal fade" data-backdrop="static" id="myModal1">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -49,5 +51,27 @@
     <script src="app/assets/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="app/assets/js/FwModal.js"></script>
+    <script>
+      var winWidth=0;
+      var winHeight=0;
+      //获取窗口宽度
+      if (window.innerWidth){
+      winWidth = window.innerWidth;
+      }else if ((document.body) && (document.body.clientWidth)){
+      winWidth = document.body.clientWidth;
+      }
+      //获取窗口高度
+      if (window.innerHeight){
+      winHeight = window.innerHeight;
+      }else if((document.body) && (document.body.clientHeight)){
+      winHeight = document.body.clientHeight;
+      }
+      //通过深入Document内部对body进行检测，获取窗口高度
+      if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth){
+      winWidth = document.documentElement.clientWidth;
+      winHeight = document.documentElement.clientHeight;
+      }
+      $(".app").css({"height":parseInt(winHeight),"width":parseInt(winWidth)});
+    </script>
   </body>
 </html>
