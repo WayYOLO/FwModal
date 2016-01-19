@@ -1,0 +1,8 @@
+//毛玻璃--ie10、11不支持
+.blur(@blurpx;@blur){
+	    -webkit-filter: blur(@blurpx); 
+          -moz-filter: blur(@blurpx);
+          -ms-filter: blur(@blurpx);    
+           filter: blur(@blurpx);
+           filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=@blur, MakeShadow=false); /* IE6~IE9 */
+}

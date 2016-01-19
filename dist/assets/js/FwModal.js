@@ -1,9 +1,8 @@
-// Bootstrap: transition.js v3.3.5
+/*!- FwModal.js - v1.1.0- 2016-01-19 */
+//Bootstrap: transition.js v3.3.5
  // Transition.js 就是为了判断当前使用的浏览器是否支持 CSS 过渡
 // Transition.js 是 transitionEnd 事件和 CSS 过渡效果模拟器的基本帮助器类。它被其他插件用来检查 CSS 过渡效果支持，并用来获取过渡效果。
 +function ($) {
-  'use strict';
-
   function transitionEnd() {
      // 创建一个元素用于测试
     var el = document.createElement('bootstrap')
@@ -50,13 +49,9 @@
     }
   })
 
-}(jQuery);
-
- // Bootstrap: modal.js v3.3.5
+}(jQuery);;   // Bootstrap: modal.js v3.3.5
  
 +function ($) {
-  'use strict';
-
   var Modal = function (element, options) {
     this.options             = options
     this.$body               = $(document.body)
@@ -378,9 +373,7 @@
     Plugin.call($target, option, this)
   })
 
-}(jQuery);
-
-/*!
+}(jQuery);;/*!
  * Draggabilly PACKAGED v1.2.4
  */
 
@@ -2628,9 +2621,7 @@ if ( jQuery && jQuery.bridget ) {
 
 return Draggabilly;
 
-}));
-
-//bootstrap-modal.js And draggabilly.js Integration solution
+}));;//bootstrap-modal.js And draggabilly.js Integration solution
  $(function(){
     var $draggable = $('.modal-dialog').draggabilly({
            handle: '.modal-header'
